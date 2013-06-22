@@ -15,8 +15,8 @@ namespace TennisMatchScorer
             //ViewModel = new MatchScoreViewModel();
             ViewModel =  new ViewModelLocator().MatchScoreViewModel;
             this.InitializeComponent();
-            this.Bind(ViewModel, x => x.PointReasons, x => x.PlayerOneCommands.ItemsSource);
-            var resultofbind = this.PlayerOneCommands.ItemsSource;
+            this.OneWayBind(ViewModel, x => x.PointReasons, x => x.PlayerOneCommands.ItemsSource);
+            this.OneWayBind(ViewModel, x => x.PointReasons, x => x.PlayerTwoCommands.ItemsSource);
 
         }
 
