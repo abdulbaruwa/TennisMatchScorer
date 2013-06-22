@@ -47,7 +47,6 @@
             <Grid Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="165,23">
                 <TextBlock>Player One</TextBlock>
             </Grid>
-
             <ItemsControl Name="PlayerOneCommands" ItemsSource="{Binding PointReasons}" Grid.Column="0" Grid.Row="1">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
@@ -57,21 +56,18 @@
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <Border RenderTransformOrigin="0.5,0.5" BorderThickness="2" BorderBrush="WhiteSmoke" Margin="3">
-                            <Border.RenderTransform>
-                                <ScaleTransform/> 
-                            </Border.RenderTransform>
-                            <TextBlock
-                                IsHitTestVisible="False"
-                                Text="{Binding Path=Name}"
-                                VerticalAlignment="Top"
-                                HorizontalAlignment="Left"
-                                Margin="10"
-                                Foreground="{StaticResource ApplicationSecondaryForegroundThemeBrush}"
-                                >
-                            </TextBlock>
+                            <Button
+                                    VerticalAlignment="Stretch" HorizontalAlignment="Stretch" 
+                                    AutomationProperties.Name="Group Title"
+                                    Style="{StaticResource TextPrimaryButtonStyle}">
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="{Binding Name}"  Style="{StaticResource SubtitleTextStyle}" HorizontalAlignment="Center"/>
+                                    <TextBlock Text="{StaticResource  DiamondUnderbarGlyph}" HorizontalAlignment="Center" FontFamily="Segoe UI Symbol"  Style="{StaticResource GroupHeaderTextStyle}"/>
+                                </StackPanel>
+                            </Button>
                         </Border>
                     </DataTemplate>
-                    
+
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
 
