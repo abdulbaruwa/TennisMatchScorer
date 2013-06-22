@@ -1,13 +1,16 @@
-﻿<common:LayoutAwarePage
-    x:Name="pageRoot"
+﻿<Page
     x:Class="TennisMatchScorer.MatchScoreView"
-    DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Self}}"
+    d:DataContext="{Binding MatchScoreViewModel, Source={d:DesignInstance Type=viewModel:ViewModelLocator, IsDesignTimeCreatable=True}}"
+    
+    x:Name="pageRoot"
+
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:TennisMatchScorer"
     xmlns:common="using:TennisMatchScorer.Common"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModel="using:TennisMatchScorer.ViewModel" xmlns:controls="using:TennisMatchScorer.Controls"
     mc:Ignorable="d">
     <Page.Resources>
 
@@ -37,54 +40,40 @@
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="60" />
-                <RowDefinition Height="*" />
+                <RowDefinition Height="46*" />
+                <RowDefinition Height="41*"/>
             </Grid.RowDefinitions>
 
-            <Grid Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Grid Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="165,23">
                 <TextBlock>Player One</TextBlock>
             </Grid>
 
-
-            <Grid Grid.Column="0" Grid.Row="1">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition MinWidth="80"/>
-                    <ColumnDefinition MinWidth="80"/>
-                    <ColumnDefinition MinWidth="80"/>
-                </Grid.ColumnDefinitions>
-
-                <Grid.RowDefinitions >
-                    <RowDefinition MinHeight="70"/>
-                    <RowDefinition MinHeight="70"/>
-                    <RowDefinition MinHeight="70"/>
-                    <RowDefinition MinHeight="70"/>
-                    <RowDefinition MinHeight="70"/>
-                    <RowDefinition MinHeight="70"/>
-                </Grid.RowDefinitions>
-                <Button Grid.Column="0" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">Item 1</Button>
-                <Button Grid.Column="1" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">Item 2</Button>
-                <Button Grid.Column="2" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">Item 3</Button>
-
-                <Button Grid.Column="0" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">Item 4</Button>
-                <Button Grid.Column="1" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">Item 5</Button>
-                <Button Grid.Column="2" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">Item 6</Button>
-
-                <Button Grid.Column="0" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">Item 7</Button>
-                <Button Grid.Column="1" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">Item 8</Button>
-                <Button Grid.Column="2" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">Item 9</Button>
-
-                <Button Grid.Column="0" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">Item 10</Button>
-                <Button Grid.Column="1" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">Item 11</Button>
-                <Button Grid.Column="2" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">Item 12</Button>
-
-                <Button Grid.Column="0" Grid.Row="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">Item 13</Button>
-                <Button Grid.Column="1" Grid.Row="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">Item 14</Button>
-                <Button Grid.Column="2" Grid.Row="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">Item 15</Button>
-
-                <Button Grid.Column="0" Grid.Row="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">Item 16</Button>
-                <Button Grid.Column="1" Grid.Row="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">Item 17</Button>
-                <Button Grid.Column="2" Grid.Row="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">Item 18</Button>
-                
-            </Grid>
+            <ItemsControl Name="PlayerOneCommands" ItemsSource="{Binding PointReasons}" Grid.Column="0" Grid.Row="1">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <controls:UniformGrid/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border RenderTransformOrigin="0.5,0.5" BorderThickness="2" BorderBrush="WhiteSmoke" Margin="3">
+                            <Border.RenderTransform>
+                                <ScaleTransform/> 
+                            </Border.RenderTransform>
+                            <TextBlock
+                                IsHitTestVisible="False"
+                                Text="{Binding Path=Name}"
+                                VerticalAlignment="Top"
+                                HorizontalAlignment="Left"
+                                Margin="10"
+                                Foreground="{StaticResource ApplicationSecondaryForegroundThemeBrush}"
+                                >
+                            </TextBlock>
+                        </Border>
+                    </DataTemplate>
+                    
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
 
             <Grid Grid.Column="1" Grid.Row="0">
                 <Grid.ColumnDefinitions>
@@ -95,7 +84,7 @@
                 <TextBlock Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">Match Time:  00:01:45</TextBlock>
             </Grid>
 
-            <Grid Grid.Column="1" Name="Center" Grid.Row="1">
+            <Grid Grid.Column="1" Name="Center" Grid.Row="1" Grid.RowSpan="2">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="100" />
                     <RowDefinition Height="250" />
@@ -177,7 +166,7 @@
 
                     </Grid>
                 </Border>
-                
+
                 <Border Name="boarderForGameNotes" BorderThickness="1" Grid.Row="2">
                     <Grid>
                         <Grid.RowDefinitions>
@@ -200,18 +189,18 @@
                         </Grid>
                         <TextBlock Grid.Row="1">Game Notes</TextBlock>
                         <TextBox Grid.Row="2" Name="GameNotes" VerticalAlignment="Stretch"></TextBox>
-                        
+
                         <Button Grid.Row="3" Name="SaveNote">Save Notes</Button>
                     </Grid>
                 </Border>
             </Grid>
 
-            <Grid Grid.Column="2" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Grid Grid.Column="2" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="166,23,165,23">
                 <TextBlock>Player Two</TextBlock>
             </Grid>
 
 
-            <Grid Grid.Column="2" Grid.Row="1" >
+            <Grid Grid.Column="2" Grid.Row="1" Grid.RowSpan="2" >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition MinWidth="80"/>
                     <ColumnDefinition MinWidth="80"/>
@@ -275,7 +264,7 @@
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <Button x:Name="backButton" Click="GoBack" IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}"
+            <Button x:Name="backButton" 
                     Style="{StaticResource BackButtonStyle}" />
             <TextBlock x:Name="pageTitle" Grid.Column="1" IsHitTestVisible="false"
                        Style="{StaticResource PageHeaderTextStyle}" />
@@ -331,4 +320,4 @@
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
     </Grid>
-</common:LayoutAwarePage>
+</Page>
