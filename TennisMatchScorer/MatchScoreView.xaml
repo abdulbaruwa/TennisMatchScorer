@@ -44,8 +44,8 @@
                 <RowDefinition Height="41*"/>
             </Grid.RowDefinitions>
 
-            <Grid Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="165,23">
-                <TextBlock>Player One</TextBlock>
+            <Grid Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                <TextBlock Style="{StaticResource GroupHeaderTextStyle}">Player One</TextBlock>
             </Grid>
             <ItemsControl Name="PlayerOneCommands" ItemsSource="{Binding PointReasons}" Grid.Column="0" Grid.Row="1">
                 <ItemsControl.ItemsPanel>
@@ -76,8 +76,8 @@
                     <ColumnDefinition />
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
-                <TextBlock Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center">Ademola Vs Kieran</TextBlock>
-                <TextBlock Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">Match Time:  00:01:45</TextBlock>
+                <TextBlock Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource GroupHeaderTextStyle}">Ademola Vs Kieran</TextBlock>
+                <TextBlock Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource GroupHeaderTextStyle}">Match Time:  00:01:45</TextBlock>
             </Grid>
 
             <Grid Grid.Column="1" Name="Center" Grid.Row="1" Grid.RowSpan="2">
@@ -101,21 +101,36 @@
                         <ColumnDefinition MaxWidth="50"/>
                     </Grid.ColumnDefinitions>
 
-                    <TextBlock Grid.Row="0" Margin="10,0,0,0">Players</TextBlock>
-                    <TextBlock Grid.Row="1" Margin="10,0,0,0">Ademola</TextBlock>
-                    <TextBlock Grid.Row="2" Margin="10,0,0,0">Kieran</TextBlock>
+                    <Rectangle  Stroke="Yellow" StrokeThickness="2" Margin="0,2,2,2" Grid.Row="0" Grid.ColumnSpan="5" />
+                    <TextBlock Style="{StaticResource SubtitleTextStyle}" Margin="10,0,0,0">Players</TextBlock>
 
-                    <TextBlock Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center">1</TextBlock>
-                    <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center">6</TextBlock>
-                    <TextBlock Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center">4</TextBlock>
+                    <Rectangle  Stroke="Yellow" StrokeThickness="2" Margin="0,-4,2,2" Grid.Row="1" Grid.ColumnSpan="5" />
+                    <TextBlock Style="{StaticResource SubtitleTextStyle}" Grid.Row="1" Margin="10,0,0,0">Ademola</TextBlock>
 
-                    <TextBlock Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center">1</TextBlock>
-                    <TextBlock Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center">7</TextBlock>
-                    <TextBlock Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center">5</TextBlock>
+                    <Rectangle  Stroke="Yellow" StrokeThickness="2" Margin="0,-4,2,2" Grid.Row="2" Grid.ColumnSpan="5" />
+                    <TextBlock Style="{StaticResource SubtitleTextStyle}" Grid.Row="2" Margin="10,0,0,0">Kieran</TextBlock>
 
-                    <TextBlock Grid.Row="0" Grid.Column="4">Current</TextBlock>
-                    <TextBlock Grid.Row="1" Grid.Column="4" HorizontalAlignment="Center">0</TextBlock>
-                    <TextBlock Grid.Row="2" Grid.Column="4" HorizontalAlignment="Center" >15</TextBlock>
+                    <Rectangle  Stroke="Yellow" StrokeThickness="2" Margin="0,2,2,2" Grid.Column="1" Grid.RowSpan="3" />
+                    <TextBlock Style="{StaticResource SubtitleTextStyle}" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center">1</TextBlock>
+
+                    <Rectangle  Stroke="Yellow" StrokeThickness="2" Margin="-4,2,2,2" Grid.Column="2" Grid.RowSpan="3" />
+                    <TextBlock Style="{StaticResource SubtitleTextStyle}" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center">6</TextBlock>
+
+                    <Rectangle  Stroke="Yellow" StrokeThickness="2" Margin="-4,2,2,2" Grid.Column="3" Grid.RowSpan="3" />
+                    <TextBlock Style="{StaticResource SubtitleTextStyle}" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center">4</TextBlock>
+                    
+                    <TextBlock Style="{StaticResource SubtitleTextStyle}" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center">2</TextBlock>
+                    <TextBlock Style="{StaticResource SubtitleTextStyle}" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center">7</TextBlock>
+                    <TextBlock Style="{StaticResource SubtitleTextStyle}" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center">5</TextBlock>
+
+                    <TextBlock Style="{StaticResource SubtitleTextStyle}" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Center">3</TextBlock>
+                    <TextBlock Style="{StaticResource SubtitleTextStyle}" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center" Text="{Binding PlayerOneThirdSet}"/>
+                    <TextBlock Style="{StaticResource SubtitleTextStyle}" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center" Text="{Binding PlayerTwoThirdSet}"/>
+
+                    <Rectangle  Stroke="Yellow" StrokeThickness="2" Margin="-4,2,2,2" Grid.Column="4" Grid.RowSpan="3" />
+                    <TextBlock Style="{StaticResource SubtitleTextStyle}" Grid.Row="0" Grid.Column="4">Current</TextBlock>
+                    <TextBlock Style="{StaticResource SubtitleTextStyle}" Grid.Row="1" Grid.Column="4" HorizontalAlignment="Center">0</TextBlock>
+                    <TextBlock Style="{StaticResource SubtitleTextStyle}" Grid.Row="2" Grid.Column="4" HorizontalAlignment="Center" >15</TextBlock>
 
                 </Grid>
 
@@ -191,12 +206,12 @@
                 </Border>
             </Grid>
 
-            <Grid Grid.Column="2" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="166,23,165,23">
-                <TextBlock>Player Two</TextBlock>
+            <Grid Grid.Column="2" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                <TextBlock Style="{StaticResource GroupHeaderTextStyle}">Player Two</TextBlock>
             </Grid>
 
 
-            <ItemsControl Name="PlayerTwoCommands" ItemsSource="{Binding PointReasons}" Grid.Column="2" Grid.Row="1">
+            <ItemsControl Name="PlayerTwoCommands" ItemsSource="{Binding PointReasons}" Grid.Column="2" Grid.Row="1" >
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
                         <controls:UniformGrid/>
@@ -205,18 +220,15 @@
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <Border RenderTransformOrigin="0.5,0.5" BorderThickness="2" BorderBrush="WhiteSmoke" Margin="3">
-                            <Border.RenderTransform>
-                                <ScaleTransform/>
-                            </Border.RenderTransform>
-                            <TextBlock
-                                IsHitTestVisible="False"
-                                Text="{Binding Path=Name}"
-                                VerticalAlignment="Top"
-                                HorizontalAlignment="Left"
-                                Margin="10"
-                                Foreground="{StaticResource ApplicationSecondaryForegroundThemeBrush}"
-                                >
-                            </TextBlock>
+                            <Button
+                                    VerticalAlignment="Stretch" HorizontalAlignment="Stretch" 
+                                    AutomationProperties.Name="Group Title"
+                                    Style="{StaticResource TextPrimaryButtonStyle}">
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="{Binding Name}"  Style="{StaticResource SubtitleTextStyle}" HorizontalAlignment="Center"/>
+                                    <TextBlock Text="{StaticResource  DiamondUnderbarGlyph}" HorizontalAlignment="Center" FontFamily="Segoe UI Symbol"  Style="{StaticResource GroupHeaderTextStyle}"/>
+                                </StackPanel>
+                            </Button>
                         </Border>
                     </DataTemplate>
 

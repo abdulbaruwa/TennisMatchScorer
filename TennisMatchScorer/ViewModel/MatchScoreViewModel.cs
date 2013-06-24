@@ -19,7 +19,20 @@ namespace TennisMatchScorer.ViewModel
         //    get { return _pointReasons; }
         //    set { this.RaiseAndSetIfChanged(ref _pointReasons, value); }
         //}
-        
+
+        private string _playerTwoThirdSet;
+        public string PlayerTwoThirdSet
+        {
+            get { return _playerTwoThirdSet; }
+            set { this.RaiseAndSetIfChanged(ref _playerTwoThirdSet, value); }
+        }
+
+        private string _playerOneThirdSet;
+        public string PlayerOneThirdSet
+        {
+            get { return _playerOneThirdSet; }
+            set { this.RaiseAndSetIfChanged(ref _playerOneThirdSet, value); }
+        }
     }
 
     public class PointReason
