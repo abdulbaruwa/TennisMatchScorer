@@ -105,32 +105,33 @@
                     <TextBlock Style="{StaticResource SubtitleTextStyle}" Margin="10,0,0,0">Players</TextBlock>
 
                     <Rectangle  Stroke="Yellow" StrokeThickness="2" Margin="0,-4,2,2" Grid.Row="1" Grid.ColumnSpan="5" />
-                    <TextBlock Style="{StaticResource SubtitleTextStyle}" Grid.Row="1" Margin="10,0,0,0">Ademola</TextBlock>
+                    <TextBlock Name="PlayerOnesName" Style="{StaticResource SubtitleTextStyle}" Grid.Row="1" Margin="10,0,0,0" Text="{Binding PlayerOnesName}"/>
 
                     <Rectangle  Stroke="Yellow" StrokeThickness="2" Margin="0,-4,2,2" Grid.Row="2" Grid.ColumnSpan="5" />
-                    <TextBlock Style="{StaticResource SubtitleTextStyle}" Grid.Row="2" Margin="10,0,0,0">Kieran</TextBlock>
+                    <TextBlock Name="PlayerTwosName" Style="{StaticResource SubtitleTextStyle}" Grid.Row="2" Margin="10,0,0,0" Text="{Binding PlayerTwosName}"/>
 
                     <Rectangle  Stroke="Yellow" StrokeThickness="2" Margin="0,2,2,2" Grid.Column="1" Grid.RowSpan="3" />
                     <TextBlock Style="{StaticResource SubtitleTextStyle}" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center">1</TextBlock>
 
                     <Rectangle  Stroke="Yellow" StrokeThickness="2" Margin="-4,2,2,2" Grid.Column="2" Grid.RowSpan="3" />
-                    <TextBlock Style="{StaticResource SubtitleTextStyle}" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center">6</TextBlock>
+                    <TextBlock Name="PlayerOneFirstSet" Style="{StaticResource SubtitleTextStyle}" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" Text="{Binding PlayerOneFirstSet}"/>
 
                     <Rectangle  Stroke="Yellow" StrokeThickness="2" Margin="-4,2,2,2" Grid.Column="3" Grid.RowSpan="3" />
-                    <TextBlock Style="{StaticResource SubtitleTextStyle}" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center">4</TextBlock>
+                    <TextBlock Name="PlayerTwoFirstSet" Style="{StaticResource SubtitleTextStyle}" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" Text="{Binding PlayerTwoFirstSet}"/>
                     
                     <TextBlock Style="{StaticResource SubtitleTextStyle}" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center">2</TextBlock>
-                    <TextBlock Style="{StaticResource SubtitleTextStyle}" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center">7</TextBlock>
-                    <TextBlock Style="{StaticResource SubtitleTextStyle}" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center">5</TextBlock>
+                    <TextBlock Name="PlayerOneSecondSet" Style="{StaticResource SubtitleTextStyle}" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" Text="{Binding PlayerOneSecondSet}"/>
+                    <TextBlock Name="PlayerTwoSecondSet" Style="{StaticResource SubtitleTextStyle}" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center" Text="{Binding PlayerTwoSecondSet}"/>
 
                     <TextBlock Style="{StaticResource SubtitleTextStyle}" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Center">3</TextBlock>
-                    <TextBlock Style="{StaticResource SubtitleTextStyle}" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center" Text="{Binding PlayerOneThirdSet}"/>
-                    <TextBlock Style="{StaticResource SubtitleTextStyle}" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center" Text="{Binding PlayerTwoThirdSet}"/>
+
+                    <TextBlock Name="PlayerOneThirdSet" Style="{StaticResource SubtitleTextStyle}" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center" Text="{Binding PlayerOneThirdSet}"/>
+                    <TextBlock Name="PlayerTwoThirdSet" Style="{StaticResource SubtitleTextStyle}" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center" Text="{Binding PlayerTwoThirdSet}"/>
 
                     <Rectangle  Stroke="Yellow" StrokeThickness="2" Margin="-4,2,2,2" Grid.Column="4" Grid.RowSpan="3" />
                     <TextBlock Style="{StaticResource SubtitleTextStyle}" Grid.Row="0" Grid.Column="4">Current</TextBlock>
-                    <TextBlock Style="{StaticResource SubtitleTextStyle}" Grid.Row="1" Grid.Column="4" HorizontalAlignment="Center">0</TextBlock>
-                    <TextBlock Style="{StaticResource SubtitleTextStyle}" Grid.Row="2" Grid.Column="4" HorizontalAlignment="Center" >15</TextBlock>
+                    <TextBlock Name="PlayerOneCurrentGame" Style="{StaticResource SubtitleTextStyle}" Grid.Row="1" Grid.Column="4" HorizontalAlignment="Center" Text="{Binding PlayerOneCurrentGame}"/>
+                    <TextBlock Name="PlayerTwoCurrentGame" Style="{StaticResource SubtitleTextStyle}" Grid.Row="2" Grid.Column="4" HorizontalAlignment="Center" Text="{Binding PlayerTwoCurrentGame}"/>
 
                 </Grid>
 
@@ -173,7 +174,7 @@
 
                         <Canvas Name="LeftCourt" Grid.Column="0" Background="DarkOliveGreen"></Canvas>
                         <Canvas Name="RightCourt" Grid.Column="3" Background="DarkOliveGreen"></Canvas>
-                        <TextBox Name="Position" Height="40" Grid.Column="3" ></TextBox>
+                        <TextBox Name="Position" Height="40" Grid.Column="3" Margin="209,381,-209,-175" ></TextBox>
 
                     </Grid>
                 </Border>
@@ -182,7 +183,7 @@
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition MaxHeight="60"/>
-                            <RowDefinition MaxHeight="50"/>
+                            <RowDefinition MaxHeight="40"/>
                             <RowDefinition />
                             <RowDefinition MaxHeight="50"/>
                         </Grid.RowDefinitions>
@@ -198,7 +199,10 @@
                             <Button Name="PlayerTwoFirstServe"  Grid.Column="2" HorizontalAlignment="Stretch">P2 First Serve</Button>
                             <Button Name="PlayerTwoSecondServe"  Grid.Column="3" HorizontalAlignment="Stretch">P2 First Serve</Button>
                         </Grid>
-                        <TextBlock Grid.Row="1">Game Notes</TextBlock>
+                        <StackPanel Grid.Row="1" Orientation="Horizontal">
+                            <TextBlock Style="{StaticResource SubtitleTextStyle}" >Game Notes</TextBlock>
+                            <!--<TextBlock Text="{StaticResource ChevronGlyph}" FontFamily="Segoe UI Symbol" Margin="0,-7,0,10" Style="{StaticResource GroupHeaderTextStyle}"/>-->
+                        </StackPanel>
                         <TextBox Grid.Row="2" Name="GameNotes" VerticalAlignment="Stretch"></TextBox>
 
                         <Button Grid.Row="3" Name="SaveNote">Save Notes</Button>
