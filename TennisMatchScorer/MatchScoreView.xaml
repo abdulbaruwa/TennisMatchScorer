@@ -28,7 +28,7 @@
     -->
     <Grid Style="{StaticResource LayoutRootStyle}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="100" />
+            <RowDefinition Height="60" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
@@ -76,8 +76,13 @@
                     <ColumnDefinition />
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
-                <TextBlock Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource GroupHeaderTextStyle}">Ademola Vs Kieran</TextBlock>
-                <TextBlock Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource GroupHeaderTextStyle}">Match Time:  00:01:45</TextBlock>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center"  HorizontalAlignment="Center" FontWeight="SemiBold" Style="{StaticResource GroupHeaderTextStyle}">Sutton Summer Open - G3</TextBlock>
+                <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource GroupHeaderTextStyle}">Ademola Vs Kieran</TextBlock>
+                <TextBlock Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource GroupHeaderTextStyle}">Match Time:  00:01:45</TextBlock>
             </Grid>
 
             <Grid Grid.Column="1" Name="Center" Grid.Row="1" Grid.RowSpan="2">
@@ -206,7 +211,7 @@
                             <TextBlock Style="{StaticResource GroupHeaderTextStyle}" FontSize="25" >Game Notes</TextBlock>
                             <!--<TextBlock Text="{StaticResource ChevronGlyph}" FontFamily="Segoe UI Symbol" Margin="0,-7,0,10" Style="{StaticResource GroupHeaderTextStyle}"/>-->
                         </StackPanel>
-                        <TextBox Grid.Row="2" Name="GameNotes" VerticalAlignment="Stretch"></TextBox>
+                        <TextBox Grid.Row="2" Name="GameNotes" VerticalAlignment="Stretch" TextWrapping="Wrap" AcceptsReturn="True" ></TextBox>
 
                         <Button Grid.Row="3" Name="SaveNote">Save Notes</Button>
                     </Grid>
@@ -269,9 +274,9 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <Button x:Name="backButton" 
-                    Style="{StaticResource BackButtonStyle}" />
+                    Style="{StaticResource BackButtonStyle}" Margin="36,0,0,8" />
             <TextBlock x:Name="pageTitle" Grid.Column="1" IsHitTestVisible="false"
-                       Style="{StaticResource PageHeaderTextStyle}"/>
+                       Style="{StaticResource PageHeaderTextStyle}" Margin="0,0,30,18"/>
         </Grid>
 
         <VisualStateManager.VisualStateGroups>
