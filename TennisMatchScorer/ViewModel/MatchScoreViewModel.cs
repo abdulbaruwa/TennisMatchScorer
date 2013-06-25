@@ -21,56 +21,56 @@ namespace TennisMatchScorer.ViewModel
         //}
         //PlayerOneCurrentGame
 
-        private string _playerOneCurrentGame;
+        private string _playerOneCurrentGame = "";
         public string PlayerOneCurrentGame
         {
             get { return _playerOneCurrentGame; }
             set { this.RaiseAndSetIfChanged(ref _playerOneCurrentGame, value); }
         }
 
-        private string _playerTwoCurrentGame;
+        private string _playerTwoCurrentGame = "";
         public string PlayerTwoCurrentGame
         {
             get { return _playerTwoCurrentGame; }
             set { this.RaiseAndSetIfChanged(ref _playerTwoCurrentGame, value); }
         }
 
-        private string _playerOnesName;
+        private string _playerOnesName = "";
         public string PlayerOnesName
         {
             get { return _playerOnesName; }
             set { this.RaiseAndSetIfChanged(ref _playerOnesName, value); }
         }
 
-        private string _playerTwosName;
+        private string _playerTwosName = "";
         public string PlayerTwosName
         {
             get { return _playerTwosName; }
             set { this.RaiseAndSetIfChanged(ref _playerTwosName, value); }
         }
 
-        private string _playerTwoThirdSet;
+        private string _playerTwoThirdSet = "";
         public string PlayerTwoThirdSet
         {
             get { return _playerTwoThirdSet; }
             set { this.RaiseAndSetIfChanged(ref _playerTwoThirdSet, value); }
         }
 
-        private string _playerOneThirdSet;
+        private string _playerOneThirdSet = "";
         public string PlayerOneThirdSet
         {
             get { return _playerOneThirdSet; }
             set { this.RaiseAndSetIfChanged(ref _playerOneThirdSet, value); }
         }
 
-        private string _playerOneSecondSet;
+        private string _playerOneSecondSet = "";
         public string PlayerOneSecondSet
         {
             get { return _playerOneSecondSet; }
             set { this.RaiseAndSetIfChanged(ref _playerOneSecondSet, value); }
         }
 
-        private string _playerTwoSecondSet;
+        private string _playerTwoSecondSet = "";
         public string PlayerTwoSecondSet
         {
             get { return _playerTwoSecondSet; }
@@ -78,14 +78,14 @@ namespace TennisMatchScorer.ViewModel
         }
 
 
-        private string _playerOneFirstSet;
+        private string _playerOneFirstSet = "";
         public string PlayerOneFirstSet
         {
             get { return _playerOneFirstSet; }
             set { this.RaiseAndSetIfChanged(ref _playerOneFirstSet, value); }
         }
 
-        private string _playerTwoFirstSet;
+        private string _playerTwoFirstSet = "";
         public string PlayerTwoFirstSet
         {
             get { return _playerTwoFirstSet; }

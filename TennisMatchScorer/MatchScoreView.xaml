@@ -172,10 +172,13 @@
 
                         </Grid>
 
-                        <Canvas Name="LeftCourt" Grid.Column="0" Background="DarkOliveGreen"></Canvas>
-                        <Canvas Name="RightCourt" Grid.Column="3" Background="DarkOliveGreen"></Canvas>
+                        <Border Grid.Column="0" BorderThickness="2">
+                            <Canvas Name="LeftCourt" Grid.Column="0" Background="DarkOliveGreen"/>
+                        </Border>
+                        <Border Grid.Column="3" BorderThickness="2">
+                            <Canvas Name="RightCourt" Grid.Column="3" Background="DarkOliveGreen"></Canvas>
+                        </Border>
                         <TextBox Name="Position" Height="40" Grid.Column="3" Margin="209,381,-209,-175" ></TextBox>
-
                     </Grid>
                 </Border>
 
@@ -185,7 +188,7 @@
                             <RowDefinition MaxHeight="60"/>
                             <RowDefinition MaxHeight="40"/>
                             <RowDefinition />
-                            <RowDefinition MaxHeight="50"/>
+                            <RowDefinition MaxHeight="40"/>
                         </Grid.RowDefinitions>
                         <Grid Name="ServeStats">
                             <Grid.ColumnDefinitions>
@@ -200,7 +203,7 @@
                             <Button Name="PlayerTwoSecondServe"  Grid.Column="3" HorizontalAlignment="Stretch">P2 First Serve</Button>
                         </Grid>
                         <StackPanel Grid.Row="1" Orientation="Horizontal">
-                            <TextBlock Style="{StaticResource SubtitleTextStyle}" >Game Notes</TextBlock>
+                            <TextBlock Style="{StaticResource GroupHeaderTextStyle}" FontSize="25" >Game Notes</TextBlock>
                             <!--<TextBlock Text="{StaticResource ChevronGlyph}" FontFamily="Segoe UI Symbol" Margin="0,-7,0,10" Style="{StaticResource GroupHeaderTextStyle}"/>-->
                         </StackPanel>
                         <TextBox Grid.Row="2" Name="GameNotes" VerticalAlignment="Stretch"></TextBox>
@@ -268,7 +271,7 @@
             <Button x:Name="backButton" 
                     Style="{StaticResource BackButtonStyle}" />
             <TextBlock x:Name="pageTitle" Grid.Column="1" IsHitTestVisible="false"
-                       Style="{StaticResource PageHeaderTextStyle}" />
+                       Style="{StaticResource PageHeaderTextStyle}"/>
         </Grid>
 
         <VisualStateManager.VisualStateGroups>
