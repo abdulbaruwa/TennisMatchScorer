@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using ReactiveUI;
 
@@ -100,32 +101,24 @@ namespace TennisMatchScorer.ViewModel
     }
 
 
-    public class ViewModelLocator
+    public class Score
     {
-        public ViewModelLocator()
-        {
-            if (Windows.ApplicationModel.DesignMode.DesignModeEnabled) return;
-        }
+        public Game GameOne { get; set; }
+        public Game GameTwo { get; set; }
+        public Game GameThree { get; set; }
+    }
+   
+    public class Game
+    {
+        public Player Winner { get; set; }
+        public int ForScore { get; set; }
+        public int AgainstScore { get; set; }
+    }
 
-        public MatchScoreViewModel MatchScoreViewModel
-        {
-            get
-            {
-                var pageVm = new MatchScoreViewModel();
-
-                for (int i = 0; i < 10; i++)
-                {
-                    pageVm.PointReasons.Add(new PointReason(){Name = "Action " + i, Player = "Ademola"});
-                }
-
-                pageVm.PlayerOnesName = "Ademola";
-                pageVm.PlayerTwosName= "Kieran";
-                pageVm.PlayerOneCurrentGame = "0";
-                pageVm.PlayerTwoCurrentGame = "15";
-                pageVm.PlayerOneFirstSet = "6";
-                pageVm.PlayerTwoFirstSet = "4";
-                return pageVm;
-            }
-        }
+    public class Player
+    {
+        public string FirstName { get; set; }
+        public string SurName { get; set; }
+        public string Rating { get; set; }
     }
 }
