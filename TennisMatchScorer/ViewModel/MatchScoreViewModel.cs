@@ -119,6 +119,10 @@ namespace TennisMatchScorer.ViewModel
     {
         public string FirstName { get; set; }
         public string SurName { get; set; }
+        public string FullName
+        {
+            get { return FirstName + " " + SurName; }
+        }
         public string Rating { get; set; }
     }
 }

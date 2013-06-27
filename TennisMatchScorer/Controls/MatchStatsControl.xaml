@@ -6,12 +6,15 @@
     xmlns:local="using:TennisMatchScorer.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:viewModel="using:TennisMatchScorer.ViewModel" xmlns:common="using:TennisMatchScorer.Common" mc:Ignorable="d"
+    xmlns:viewModel="using:TennisMatchScorer.ViewModel" xmlns:common="using:TennisMatchScorer.Common"
+    xmlns:system="using:System" mc:Ignorable="d"
     >
     <UserControl.Resources>
-        <common:BooleanToWinLoseImageConverter x:Key="BoolToWinLoseGlyphConverter" />
         <common:BooleanToVisibilityConverter x:Key="BoolToVisibilityConverter" />
         <common:BooleanToVisibilityInverseConverter x:Key="BoolToVisibilityInverseConverter" />
+        <common:AlternateBackgroundConverter x:Key="AltnateBackgroundConverter" />
+
+
     </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -19,7 +22,7 @@
             <RowDefinition />
         </Grid.RowDefinitions>
         <TextBlock Name="MyMatchStats" Grid.Row="0" Style="{StaticResource GroupHeaderTextStyle}" VerticalAlignment="Center" Text="Match Stats"/>
-        <ListView Grid.Row="1"  HorizontalContentAlignment="Stretch" ItemsSource="{Binding MyMatchStats}" Name="MyMatchStatsDetails">
+        <ListView Grid.Row="1"  HorizontalContentAlignment="Stretch" ItemsSource="{Binding MyMatchStats}" Name="MyMatchStatsDetails" >
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <StackPanel Orientation="Vertical"/>
@@ -27,24 +30,32 @@
             </ItemsControl.ItemsPanel>
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Border RenderTransformOrigin="0.5,0.5"  BorderThickness="2" BorderBrush="WhiteSmoke" Margin="3">
-                        
-                            <Grid Width="600">
+                    <Border RenderTransformOrigin="0.5,0.5"  BorderThickness="2" BorderBrush="WhiteSmoke" Margin="0,-7">
+                        <Grid Width="600">
+                                <Grid.Background>
+                                <SolidColorBrush Color="{Binding IndexWithinParentCollection, Mode=OneWay,Converter={StaticResource AltnateBackgroundConverter}}"/>
+                                </Grid.Background>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="30"/>
                                     <ColumnDefinition/>
-                                    <ColumnDefinition Width="400"/>
+                                    <ColumnDefinition Width="200"/>
+                                    <ColumnDefinition MinWidth="150"/>
                                     <ColumnDefinition />
                                 </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition  Height="70"/>
+                            </Grid.RowDefinitions>
+                                <Rectangle  Stroke="Yellow" StrokeThickness="2" Margin="0" Grid.Row="0" Grid.ColumnSpan="5" />    
                                 <Grid Grid.Column="0" Visibility="{Binding Won, Converter={StaticResource BoolToVisibilityInverseConverter}}">
                                     <TextBlock Text="&#xE11D;" FontFamily="Segoe UI Symbol" Margin="2,0,2,0" HorizontalAlignment="Center"/>
                                 </Grid>
                                 <Grid  Grid.Column="0" Visibility="{Binding Won, Converter={StaticResource BoolToVisibilityConverter}}">
                                     <TextBlock Text="&#xE170;" FontFamily="Segoe UI Symbol" Margin="2,0,2,0" HorizontalAlignment="Center"/>
                                 </Grid>
-                                <TextBlock Grid.Column="1" Text="{Binding Date }"  Style="{StaticResource SubtitleTextStyle}" HorizontalAlignment="Center" Margin="5,0,0,2"/>
-                                <TextBlock Grid.Column="2" Text="{Binding TournamentName }"  Style="{StaticResource SubtitleTextStyle}" HorizontalAlignment="Center"/>
-                                <TextBlock Grid.Column="3" Text="{Binding MatchScore }"  Style="{StaticResource SubtitleTextStyle}" HorizontalAlignment="Center"/>
+                                <TextBlock Grid.Column="1" Text="{Binding Date }"  Style="{StaticResource SubtitleTextStyle}" HorizontalAlignment="Left" Margin="5,0,0,2"/>
+                                <TextBlock Grid.Column="2" Text="{Binding TournamentName }"  Style="{StaticResource SubtitleTextStyle}" HorizontalAlignment="Left" Margin="10,0,0,3"/>
+                                <TextBlock Grid.Column="3" Text="{Binding PlayerTwo.FullName}"  Style="{StaticResource SubtitleTextStyle}" HorizontalAlignment="Left" Margin="10,0,0,2"/>
+                                <TextBlock Grid.Column="4" Text="{Binding MatchScore }"  Style="{StaticResource SubtitleTextStyle}" HorizontalAlignment="Left" Margin="10,0,0,2"/>
 
                             </Grid>
 

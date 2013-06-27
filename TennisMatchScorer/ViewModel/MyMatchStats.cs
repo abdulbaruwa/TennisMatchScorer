@@ -26,6 +26,8 @@ namespace TennisMatchScorer.ViewModel
             }
         }
 
+        public int IndexWithinParentCollection { get; set; }
+
         private string GetGameScoreText(Game game)
         {
             string matchScore;

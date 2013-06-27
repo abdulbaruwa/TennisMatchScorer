@@ -106,6 +106,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Common\AlternateBackgroundConverter.cs" />
     <Compile Include="Common\BooleanToWinLoseImageConverter.cs" />
     <Compile Include="Controls\MatchStatsControl.xaml.cs">
       <DependentUpon>MatchStatsControl.xaml</DependentUpon>

@@ -9,15 +9,15 @@ namespace TennisMatchScorer.DesignTimeData
         public IEnumerable<MyMatchStats> BuildMatchStatsForDesignTimeView()
         {
             var matchStats = new List<MyMatchStats>();
-            matchStats.Add(DummyMatchStats1());
-            matchStats.Add(DummyMatchStats2());
-            matchStats.Add(DummyMatchStats3());
-            matchStats.Add(DummyMatchStats2());
-            matchStats.Add(DummyMatchStats1());
+            matchStats.Add(DummyMatchStats1(0));
+            matchStats.Add(DummyMatchStats2(1));
+            matchStats.Add(DummyMatchStats3(2));
+            matchStats.Add(DummyMatchStats2(3));
+            matchStats.Add(DummyMatchStats1(4));
             return matchStats;
         }
 
-        private static MyMatchStats DummyMatchStats1()
+        private static MyMatchStats DummyMatchStats1(int index)
         {
             var playerOne = new Player() { FirstName = "Adeomola", Rating = "7.2", SurName = "Baruwa" };
             var playerTwo = new Player() { FirstName = "Kieran", Rating = "7.1", SurName = "Reed" };
@@ -33,11 +33,12 @@ namespace TennisMatchScorer.DesignTimeData
                 PlayerTwo = playerTwo,
                 Score = new Score() { GameOne = gameOne, GameTwo = gameTwo, GameThree = gameThree },
                 TournamentName = "Sutton Clay Open",
-                Won = true
+                Won = true,
+                IndexWithinParentCollection = index
             };
         }
 
-        private static MyMatchStats DummyMatchStats2()
+        private static MyMatchStats DummyMatchStats2(int index)
         {
             var playerOne = new Player() { FirstName = "Adeomola", Rating = "7.2", SurName = "Baruwa" };
             var playerTwo = new Player() { FirstName = "Adam", Rating = "7.1", SurName = "Keop" };
@@ -53,12 +54,13 @@ namespace TennisMatchScorer.DesignTimeData
                 PlayerTwo = playerTwo,
                 Score = new Score() { GameOne = gameOne, GameTwo = gameTwo, GameThree = gameThree },
                 TournamentName = "DL Open",
-                Won = true
+                Won = true,
+                IndexWithinParentCollection = index
             };
 
         }
 
-        private static MyMatchStats DummyMatchStats3()
+        private static MyMatchStats DummyMatchStats3(int index)
         {
             var playerOne = new Player() { FirstName = "Adeomola", Rating = "7.2", SurName = "Baruwa" };
             var playerTwo = new Player() { FirstName = "Quinton", Rating = "6.1", SurName = "Kumaressagem" };
@@ -74,7 +76,8 @@ namespace TennisMatchScorer.DesignTimeData
                 PlayerTwo = playerTwo,
                 Score = new Score() { GameOne = gameOne, GameTwo = gameTwo, GameThree = gameThree },
                 TournamentName = "Heston Summer Championship",
-                Won = false
+                Won = false,
+                IndexWithinParentCollection = index
             };
 
         }
