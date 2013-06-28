@@ -12,10 +12,9 @@ namespace TennisMatchScorer.Controls
 
         public MatchStatsControl()
         {
+            ViewModel = new MyMatchStatsViewModel();
             InitializeComponent();
         }
-
-        #region IViewFor<MyMatchStatsViewModel> Members
 
         public MyMatchStatsViewModel ViewModel
         {
@@ -28,7 +27,5 @@ namespace TennisMatchScorer.Controls
             get { return ViewModel; }
             set { ViewModel = (MyMatchStatsViewModel)value; }
         }
-
-        #endregion
     }
 }

@@ -41,5 +41,17 @@ namespace TennisMatchScorer.ViewModel
                 return pageVm;
             }
         }
+
+        public HomePageViewModel HomePageViewModel
+        {
+            get
+            {
+                var defaultPlayer = new Player() {FirstName = "Ademola", Rating = "7.2", SurName = "Baruwa"};
+                var homepageVm = new HomePageViewModel();
+                homepageVm.MyMatchStatsViewModel = this.MyMatchStatsViewModel;
+                homepageVm.DefaultPlayer = defaultPlayer;
+                return homepageVm;
+            }
+        }
     }
 }

@@ -127,9 +127,10 @@
     <Compile Include="ViewModel\MyMatchStats.cs" />
     <Compile Include="ViewModel\MyMatchStatsViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
-    <Compile Include="Views\GroupedItemsPage1.xaml.cs">
-      <DependentUpon>GroupedItemsPage1.xaml</DependentUpon>
+    <Compile Include="Views\HomePageView.xaml.cs">
+      <DependentUpon>HomePageView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\HomePageViewModel.cs" />
     <Compile Include="Views\NewMatchView.xaml.cs">
       <DependentUpon>NewMatchView.xaml</DependentUpon>
     </Compile>
@@ -174,7 +175,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\GroupedItemsPage1.xaml">
+    <Page Include="Views\HomePageView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

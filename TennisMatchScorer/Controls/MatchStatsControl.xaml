@@ -21,7 +21,7 @@
             <RowDefinition MaxHeight="60"/>
             <RowDefinition />
         </Grid.RowDefinitions>
-        <TextBlock Name="MyMatchStats" Grid.Row="0" Style="{StaticResource GroupHeaderTextStyle}" VerticalAlignment="Center" Text="Match Stats"/>
+        <TextBlock Name="MyMatchStats" Grid.Row="0" Style="{StaticResource GroupHeaderTextStyle}" VerticalAlignment="Center" Margin="15,0,0,0" Text="Match Stats"/>
         <ListView Grid.Row="1"  HorizontalContentAlignment="Stretch" ItemsSource="{Binding MyMatchStats}" Name="MyMatchStatsDetails" >
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
@@ -43,14 +43,14 @@
                                     <ColumnDefinition />
                                 </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
-                                <RowDefinition  Height="70"/>
+                                <RowDefinition  Height="50"/>
                             </Grid.RowDefinitions>
                                 <Rectangle  Stroke="Yellow" StrokeThickness="2" Margin="0" Grid.Row="0" Grid.ColumnSpan="5" />    
                                 <Grid Grid.Column="0" Visibility="{Binding Won, Converter={StaticResource BoolToVisibilityInverseConverter}}">
-                                    <TextBlock Text="&#xE11D;" FontFamily="Segoe UI Symbol" Margin="2,0,2,0" HorizontalAlignment="Center"/>
+                                    <TextBlock Text="&#xE11D;" FontFamily="Segoe UI Symbol" Margin="2,10,2,0" HorizontalAlignment="Center"/>
                                 </Grid>
                                 <Grid  Grid.Column="0" Visibility="{Binding Won, Converter={StaticResource BoolToVisibilityConverter}}">
-                                    <TextBlock Text="&#xE170;" FontFamily="Segoe UI Symbol" Margin="2,0,2,0" HorizontalAlignment="Center"/>
+                                    <TextBlock Text="&#xE170;" FontFamily="Segoe UI Symbol" Margin="2,10,2,0" HorizontalAlignment="Center"/>
                                 </Grid>
                                 <TextBlock Grid.Column="1" Text="{Binding Date }"  Style="{StaticResource SubtitleTextStyle}" HorizontalAlignment="Left" Margin="5,0,0,2"/>
                                 <TextBlock Grid.Column="2" Text="{Binding TournamentName }"  Style="{StaticResource SubtitleTextStyle}" HorizontalAlignment="Left" Margin="10,0,0,3"/>
