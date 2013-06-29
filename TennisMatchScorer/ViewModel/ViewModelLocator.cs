@@ -5,10 +5,12 @@ namespace TennisMatchScorer.ViewModel
     public class ViewModelLocator
     {
         private MyMatchStats _myMatchStats;
-
+        private Player _defaultPlayer;
         public ViewModelLocator()
         {
+
             if (Windows.ApplicationModel.DesignMode.DesignModeEnabled) return;
+         
         }
 
         public MyMatchStatsViewModel MyMatchStatsViewModel
@@ -51,6 +53,14 @@ namespace TennisMatchScorer.ViewModel
                 homepageVm.MyMatchStatsViewModel = this.MyMatchStatsViewModel;
                 homepageVm.DefaultPlayer = defaultPlayer;
                 return homepageVm;
+            }
+        }
+
+        public UpcomingMatchesControlViewModel UpcomingMatchesControlViewModel
+        {
+            get
+            {
+                return new DummyDataBuilder().BuildUpcomingMatchesDataForDesignView();
             }
         }
     }

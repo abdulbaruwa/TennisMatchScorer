@@ -129,7 +129,7 @@
     <Compile Include="ViewModel\MatchScoreViewModel.cs" />
     <Compile Include="ViewModel\MyMatchStats.cs" />
     <Compile Include="ViewModel\MyMatchStatsViewModel.cs" />
-    <Compile Include="ViewModel\UpcomingMatchControlViewModel.cs" />
+    <Compile Include="ViewModel\UpcomingMatchesControlViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="Views\HomePageView.xaml.cs">
       <DependentUpon>HomePageView.xaml</DependentUpon>

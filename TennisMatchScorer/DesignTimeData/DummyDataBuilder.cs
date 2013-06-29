@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using ReactiveUI;
 using TennisMatchScorer.ViewModel;
 
 namespace TennisMatchScorer.DesignTimeData
@@ -80,6 +81,54 @@ namespace TennisMatchScorer.DesignTimeData
                 IndexWithinParentCollection = index
             };
 
+        }
+
+        public UpcomingMatchesControlViewModel BuildUpcomingMatchesDataForDesignView()
+        {
+            var playerOne = new Player() { FirstName = "Adeomola", Rating = "7.2", SurName = "Baruwa" };
+            var upcomingMatch = new UpcomingMatchesControlViewModel();
+            upcomingMatch.DefaultPlayer = playerOne;
+            upcomingMatch.MatchFormat = new MatchFormat() {FinalSetType = 3, Sets = 3};
+            upcomingMatch.StartTime =  DateTime.Now.AddHours(3.0);
+
+
+            upcomingMatch.Matches = new ReactiveList<MyMatchStats>(); 
+            upcomingMatch.Matches.Add(new MyMatchStats()
+            {
+                Date = DateTime.Now.AddHours(4.0),
+                PlayerOne = playerOne,
+                PlayerTwo = new Player(){FirstName = "Winston", SurName = "Willis",Rating = "6.1"},
+                TournamentName = "Sutton Clay Open",
+                IndexWithinParentCollection = 0
+            });
+
+            upcomingMatch.Matches.Add(new MyMatchStats()
+            {
+                Date = DateTime.Now.AddHours(8.0),
+                PlayerOne = playerOne,
+                PlayerTwo = new Player() { FirstName = "Elliot", SurName = "Chad", Rating = "5.2" },
+                TournamentName = "Sutton Clay Open",
+                IndexWithinParentCollection = 1
+            });
+
+            upcomingMatch.Matches.Add(new MyMatchStats()
+            {
+                Date = DateTime.Now.AddDays(1.0),
+                PlayerOne = playerOne,
+                PlayerTwo = new Player() { FirstName = "Michael", SurName = "Brownie", Rating = "5.2" },
+                TournamentName = "Sutton Clay Open",
+                IndexWithinParentCollection = 2
+            });
+
+            upcomingMatch.Matches.Add(new MyMatchStats()
+            {
+                Date = DateTime.Now.AddDays(1.0).AddHours(4.0),
+                PlayerOne = playerOne,
+                PlayerTwo = new Player() { FirstName = "Benjamin", SurName = "Dada", Rating = "6.2" },
+                TournamentName = "Sutton Clay Open",
+                IndexWithinParentCollection = 3
+            });
+            return upcomingMatch;
         }
     }
 }

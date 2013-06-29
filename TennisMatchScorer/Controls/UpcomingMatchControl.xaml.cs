@@ -4,28 +4,28 @@ using Windows.UI.Xaml;
 
 namespace TennisMatchScorer.Controls
 {
-    public sealed partial class UpcomingMatchControl : IViewFor<UpcomingMatchControlViewModel>
+    public sealed partial class UpcomingMatchControl : IViewFor<UpcomingMatchesControlViewModel>
     {
         public static readonly DependencyProperty ViewModelProperty =
-            DependencyProperty.Register("ViewModel", typeof(UpcomingMatchControlViewModel), typeof(UpcomingMatchControl),
+            DependencyProperty.Register("ViewModel", typeof(UpcomingMatchesControlViewModel), typeof(UpcomingMatchControl),
                                         new PropertyMetadata(null));
 
         public UpcomingMatchControl()
         {
-            ViewModel = new UpcomingMatchControlViewModel();
+            ViewModel = new UpcomingMatchesControlViewModel();
             InitializeComponent();
         }
 
-        public UpcomingMatchControlViewModel ViewModel
+        public UpcomingMatchesControlViewModel ViewModel
         {
-            get { return (UpcomingMatchControlViewModel)GetValue(ViewModelProperty); }
+            get { return (UpcomingMatchesControlViewModel)GetValue(ViewModelProperty); }
             set { SetValue(ViewModelProperty, value); }
         }
 
         object IViewFor.ViewModel
         {
             get { return ViewModel; }
-            set { ViewModel = (UpcomingMatchControlViewModel)value; }
+            set { ViewModel = (UpcomingMatchesControlViewModel)value; }
         }
     }
 }

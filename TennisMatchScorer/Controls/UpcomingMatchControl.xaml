@@ -1,5 +1,5 @@
 ﻿<UserControl
-    d:DataContext="{Binding UpcomingMatchControlViewModel, Source={d:DesignInstance Type=viewModel:ViewModelLocator, IsDesignTimeCreatable=True}}"
+    d:DataContext="{Binding UpcomingMatchesControlViewModel, Source={d:DesignInstance Type=viewModel:ViewModelLocator, IsDesignTimeCreatable=True}}"
     x:Class="TennisMatchScorer.Controls.UpcomingMatchControl"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -9,21 +9,52 @@
     xmlns:viewModel="using:TennisMatchScorer.ViewModel" xmlns:common="using:TennisMatchScorer.Common"
     xmlns:system="using:System" mc:Ignorable="d"
     >
-
+    <UserControl.Resources>
+        <common:AlternateBackgroundConverter x:Key="AltnateBackgroundConverter" />
+    </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
             <RowDefinition />
         </Grid.RowDefinitions>
-        <TextBlock Name="NextMatches" Grid.Row="0" Style="{StaticResource GroupHeaderTextStyle}" VerticalAlignment="Top" Margin="15,0,0,0" Text="Next Match"/>
-        <Grid Grid.Row="1" HorizontalAlignment="Left" Width="250" Height="250">
-            <Border Background="{StaticResource ListViewItemPlaceholderBackgroundThemeBrush}">
-                <Image Source="{Binding Image}" Stretch="UniformToFill"/>
-            </Border>
-            <StackPanel VerticalAlignment="Bottom" Background="{StaticResource ListViewItemOverlayBackgroundThemeBrush}">
-                <TextBlock Text="{Binding Title}" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource TitleTextStyle}" Height="60" Margin="15,0,15,0"/>
-                <TextBlock Text="{Binding Subtitle}" Foreground="{StaticResource ListViewItemOverlaySecondaryForegroundThemeBrush}" Style="{StaticResource CaptionTextStyle}" TextWrapping="NoWrap" Margin="15,0,15,10"/>
-            </StackPanel>
-        </Grid>
+        <TextBlock Name="MyUpcomingMatches" Grid.Row="0" Style="{StaticResource GroupHeaderTextStyle}" VerticalAlignment="Top" Margin="15,0,0,0" Text="Upcoming Matches"/>
+        <ListView Grid.Row="1"  HorizontalContentAlignment="Stretch" ItemsSource="{Binding Matches}" Name="MyUpcomingMatchesDetails" >
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Vertical"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Border RenderTransformOrigin="0.5,0.5"  BorderThickness="2" BorderBrush="WhiteSmoke" Margin="0,-7">
+                        <Grid Width="600">
+                            <Grid.Background>
+                                <SolidColorBrush Color="{Binding IndexWithinParentCollection, Mode=OneWay,Converter={StaticResource AltnateBackgroundConverter}}"/>
+                            </Grid.Background>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="200"/>
+                                <ColumnDefinition MinWidth="150"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition  Height="50"/>
+                            </Grid.RowDefinitions>
+                            <Rectangle  Stroke="Yellow" StrokeThickness="2" Margin="0" Grid.Row="0" Grid.ColumnSpan="5" />
+                            <TextBlock Grid.Column="1" Text="{Binding Tournament.TournamentName }"  Style="{StaticResource SubtitleTextStyle}" HorizontalAlignment="Left" Margin="10,0,0,3"/>
+                            <TextBlock Grid.Column="2" Text="{Binding PlayerTwo.FullName}"  Style="{StaticResource SubtitleTextStyle}" HorizontalAlignment="Left" Margin="10,0,0,2"/>
+                            <TextBlock Grid.Column="3" Text="{Binding Date }"  Style="{StaticResource SubtitleTextStyle}" HorizontalAlignment="Left" Margin="5,0,0,2"/>
+                            <TextBlock Grid.Column="4" Text="{Binding MatchScore }"  Style="{StaticResource SubtitleTextStyle}" HorizontalAlignment="Left" Margin="10,0,0,2"/>
+
+                        </Grid>
+
+                    </Border>
+                </DataTemplate>
+
+            </ItemsControl.ItemTemplate>
+        </ListView>
+
     </Grid>
+
 </UserControl>
