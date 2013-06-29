@@ -108,6 +108,9 @@
     </Compile>
     <Compile Include="Common\AlternateBackgroundConverter.cs" />
     <Compile Include="Common\BooleanToWinLoseImageConverter.cs" />
+    <Compile Include="Controls\UpcomingMatchControl.xaml.cs">
+      <DependentUpon>UpcomingMatchControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\MatchStatsControl.xaml.cs">
       <DependentUpon>MatchStatsControl.xaml</DependentUpon>
     </Compile>
@@ -126,6 +129,7 @@
     <Compile Include="ViewModel\MatchScoreViewModel.cs" />
     <Compile Include="ViewModel\MyMatchStats.cs" />
     <Compile Include="ViewModel\MyMatchStatsViewModel.cs" />
+    <Compile Include="ViewModel\UpcomingMatchControlViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="Views\HomePageView.xaml.cs">
       <DependentUpon>HomePageView.xaml</DependentUpon>
@@ -160,6 +164,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="Common\StandardStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\UpcomingMatchControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

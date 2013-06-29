@@ -18,10 +18,10 @@
     </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition MaxHeight="60"/>
+            <RowDefinition Height="60"/>
             <RowDefinition />
         </Grid.RowDefinitions>
-        <TextBlock Name="MyMatchStats" Grid.Row="0" Style="{StaticResource GroupHeaderTextStyle}" VerticalAlignment="Center" Margin="15,0,0,0" Text="Match Stats"/>
+        <TextBlock Name="MyMatchStats" Grid.Row="0" Style="{StaticResource GroupHeaderTextStyle}" VerticalAlignment="Top" Margin="15,0,0,0" Text="Match Stats"/>
         <ListView Grid.Row="1"  HorizontalContentAlignment="Stretch" ItemsSource="{Binding MyMatchStats}" Name="MyMatchStatsDetails" >
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>

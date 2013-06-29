@@ -75,6 +75,9 @@
             <Grid Name="MatchStatsGridSection" HorizontalAlignment="Left" MinWidth="250" MinHeight="250" DataContext="{Binding MyMatchStatsViewModel}">
                 <Controls:MatchStatsControl DataContext="{Binding}"/>
             </Grid>
+            <Grid Name="NextMatchGridSection" HorizontalAlignment="Left" MinWidth="250" MinHeight="250" DataContext="{Binding MyMatchStatsViewModel}">
+                <Controls:UpcomingMatchControl />
+            </Grid>
             <TextBlock>Other Controls for the home page go here</TextBlock>
         </GridView>
 
