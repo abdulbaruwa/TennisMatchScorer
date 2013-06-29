@@ -108,6 +108,8 @@
     </Compile>
     <Compile Include="Common\AlternateBackgroundConverter.cs" />
     <Compile Include="Common\BooleanToWinLoseImageConverter.cs" />
+    <Compile Include="Common\EnumDescriptionConverter.cs" />
+    <Compile Include="Common\EnumHelper.cs" />
     <Compile Include="Controls\UpcomingMatchControl.xaml.cs">
       <DependentUpon>UpcomingMatchControl.xaml</DependentUpon>
     </Compile>
@@ -126,6 +128,8 @@
     <Compile Include="Common\LayoutAwarePage.cs" />
     <Compile Include="Common\RichTextColumns.cs" />
     <Compile Include="Common\SuspensionManager.cs" />
+    <Compile Include="ViewModel\DescriptionAttribute.cs" />
+    <Compile Include="ViewModel\FinalSetFormats.cs" />
     <Compile Include="ViewModel\MatchScoreViewModel.cs" />
     <Compile Include="ViewModel\MyMatchStats.cs" />
     <Compile Include="ViewModel\MyMatchStatsViewModel.cs" />

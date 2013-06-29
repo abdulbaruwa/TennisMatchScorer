@@ -34,7 +34,7 @@ namespace TennisMatchScorer.DesignTimeData
                 PlayerTwo = playerTwo,
                 Score = new Score() { GameOne = gameOne, GameTwo = gameTwo, GameThree = gameThree },
                 TournamentName = "Sutton Clay Open",
-                Won = true,
+                DefaultPlayerWon = true,
                 IndexWithinParentCollection = index
             };
         }
@@ -55,7 +55,7 @@ namespace TennisMatchScorer.DesignTimeData
                 PlayerTwo = playerTwo,
                 Score = new Score() { GameOne = gameOne, GameTwo = gameTwo, GameThree = gameThree },
                 TournamentName = "DL Open",
-                Won = true,
+                DefaultPlayerWon = true,
                 IndexWithinParentCollection = index
             };
 
@@ -77,7 +77,7 @@ namespace TennisMatchScorer.DesignTimeData
                 PlayerTwo = playerTwo,
                 Score = new Score() { GameOne = gameOne, GameTwo = gameTwo, GameThree = gameThree },
                 TournamentName = "Heston Summer Championship",
-                Won = false,
+                DefaultPlayerWon = false,
                 IndexWithinParentCollection = index
             };
 
@@ -88,9 +88,8 @@ namespace TennisMatchScorer.DesignTimeData
             var playerOne = new Player() { FirstName = "Adeomola", Rating = "7.2", SurName = "Baruwa" };
             var upcomingMatch = new UpcomingMatchesControlViewModel();
             upcomingMatch.DefaultPlayer = playerOne;
-            upcomingMatch.MatchFormat = new MatchFormat() {FinalSetType = 3, Sets = 3};
+            upcomingMatch.MatchFormat = new MatchFormat() {FinalSetType = FinalSetFormats.TenPointChampionShipTieBreak, Sets = 3};
             upcomingMatch.StartTime =  DateTime.Now.AddHours(3.0);
-
 
             upcomingMatch.Matches = new ReactiveList<MyMatchStats>(); 
             upcomingMatch.Matches.Add(new MyMatchStats()
@@ -99,6 +98,8 @@ namespace TennisMatchScorer.DesignTimeData
                 PlayerOne = playerOne,
                 PlayerTwo = new Player(){FirstName = "Winston", SurName = "Willis",Rating = "6.1"},
                 TournamentName = "Sutton Clay Open",
+                Tournament = new Tournament(){StartDate = DateTime.Now, TournamentGrade = "4", TournamentName =  "Sutton Clay Open"},
+                MatchFormat = upcomingMatch.MatchFormat,
                 IndexWithinParentCollection = 0
             });
 
@@ -108,6 +109,8 @@ namespace TennisMatchScorer.DesignTimeData
                 PlayerOne = playerOne,
                 PlayerTwo = new Player() { FirstName = "Elliot", SurName = "Chad", Rating = "5.2" },
                 TournamentName = "Sutton Clay Open",
+                Tournament = new Tournament() { StartDate = DateTime.Now, TournamentGrade = "4", TournamentName = "Sutton Clay Open" },
+                MatchFormat = upcomingMatch.MatchFormat,
                 IndexWithinParentCollection = 1
             });
 
@@ -117,6 +120,8 @@ namespace TennisMatchScorer.DesignTimeData
                 PlayerOne = playerOne,
                 PlayerTwo = new Player() { FirstName = "Michael", SurName = "Brownie", Rating = "5.2" },
                 TournamentName = "Sutton Clay Open",
+                Tournament = new Tournament() { StartDate = DateTime.Now, TournamentGrade = "4", TournamentName = "Sutton Clay Open" },
+                MatchFormat = upcomingMatch.MatchFormat,
                 IndexWithinParentCollection = 2
             });
 
@@ -126,6 +131,8 @@ namespace TennisMatchScorer.DesignTimeData
                 PlayerOne = playerOne,
                 PlayerTwo = new Player() { FirstName = "Benjamin", SurName = "Dada", Rating = "6.2" },
                 TournamentName = "Sutton Clay Open",
+                Tournament = new Tournament() { StartDate = DateTime.Now, TournamentGrade = "4", TournamentName = "Sutton Clay Open" },
+                MatchFormat = upcomingMatch.MatchFormat,
                 IndexWithinParentCollection = 3
             });
             return upcomingMatch;

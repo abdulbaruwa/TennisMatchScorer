@@ -46,10 +46,10 @@
                                 <RowDefinition  Height="50"/>
                             </Grid.RowDefinitions>
                                 <Rectangle  Stroke="Yellow" StrokeThickness="2" Margin="0" Grid.Row="0" Grid.ColumnSpan="5" />    
-                                <Grid Grid.Column="0" Visibility="{Binding Won, Converter={StaticResource BoolToVisibilityInverseConverter}}">
+                                <Grid Grid.Column="0" Visibility="{Binding DefaultPlayerWon, Converter={StaticResource BoolToVisibilityInverseConverter}}">
                                     <TextBlock Text="&#xE11D;" FontFamily="Segoe UI Symbol" Margin="2,10,2,0" HorizontalAlignment="Center"/>
                                 </Grid>
-                                <Grid  Grid.Column="0" Visibility="{Binding Won, Converter={StaticResource BoolToVisibilityConverter}}">
+                                <Grid  Grid.Column="0" Visibility="{Binding DefaultPlayerWon, Converter={StaticResource BoolToVisibilityConverter}}">
                                     <TextBlock Text="&#xE170;" FontFamily="Segoe UI Symbol" Margin="2,10,2,0" HorizontalAlignment="Center"/>
                                 </Grid>
                                 <TextBlock Grid.Column="1" Text="{Binding Date }"  Style="{StaticResource SubtitleTextStyle}" HorizontalAlignment="Left" Margin="5,0,0,2"/>

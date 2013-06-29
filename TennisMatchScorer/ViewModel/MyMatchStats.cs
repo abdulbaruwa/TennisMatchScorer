@@ -9,11 +9,12 @@ namespace TennisMatchScorer.ViewModel
         public int Duration { get; set; }
         public Player PlayerOne { get; set; }
         public Player PlayerTwo { get; set; }
-        public bool Won { get; set; }
-
-        public string WinLose
+        public bool DefaultPlayerWon { get; set; }
+        public Tournament Tournament { get; set; }
+        public MatchFormat MatchFormat { get; set; }
+        public string DefaultPlayerWinLose
         {
-            get { return Won ? "&#xE071" : "&#xE071;"; }
+            get { return DefaultPlayerWon ? "&#xE071" : "&#xE071;"; }
         }
 
         public Score Score { get; set; }
@@ -25,6 +26,7 @@ namespace TennisMatchScorer.ViewModel
                 return GetGameScoreText(Score.GameOne) + " " + GetGameScoreText(Score.GameTwo) + " " + GetGameScoreText(Score.GameThree);
             }
         }
+
 
         public int IndexWithinParentCollection { get; set; }
 

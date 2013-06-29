@@ -11,14 +11,16 @@
     >
     <UserControl.Resources>
         <common:AlternateBackgroundConverter x:Key="AltnateBackgroundConverter" />
+        <common:EnumDescriptionConverter x:Key="EnumDescConverter" />
     </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
             <RowDefinition />
         </Grid.RowDefinitions>
-        <TextBlock Name="MyUpcomingMatches" Grid.Row="0" Style="{StaticResource GroupHeaderTextStyle}" VerticalAlignment="Top" Margin="15,0,0,0" Text="Upcoming Matches"/>
-        <ListView Grid.Row="1"  HorizontalContentAlignment="Stretch" ItemsSource="{Binding Matches}" Name="MyUpcomingMatchesDetails" >
+            <TextBlock Name="MyUpcomingMatches" Grid.Row="0" Style="{StaticResource GroupHeaderTextStyle}" VerticalAlignment="Top" Margin="15,0,0,0" Text="Upcoming Matches"/>
+   
+            <ListView Grid.Row="2"  HorizontalContentAlignment="Stretch" ItemsSource="{Binding Matches}" Name="MyUpcomingMatchesDetails" >
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <StackPanel Orientation="Vertical"/>
@@ -27,16 +29,18 @@
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <Border RenderTransformOrigin="0.5,0.5"  BorderThickness="2" BorderBrush="WhiteSmoke" Margin="0,-7">
-                        <Grid Width="600">
+                        
+                        <Grid Width="800">
+                            
                             <Grid.Background>
                                 <SolidColorBrush Color="{Binding IndexWithinParentCollection, Mode=OneWay,Converter={StaticResource AltnateBackgroundConverter}}"/>
                             </Grid.Background>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="30"/>
                                 <ColumnDefinition/>
-                                <ColumnDefinition Width="200"/>
-                                <ColumnDefinition MinWidth="150"/>
-                                <ColumnDefinition />
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
                                 <RowDefinition  Height="50"/>
@@ -44,8 +48,8 @@
                             <Rectangle  Stroke="Yellow" StrokeThickness="2" Margin="0" Grid.Row="0" Grid.ColumnSpan="5" />
                             <TextBlock Grid.Column="1" Text="{Binding Tournament.TournamentName }"  Style="{StaticResource SubtitleTextStyle}" HorizontalAlignment="Left" Margin="10,0,0,3"/>
                             <TextBlock Grid.Column="2" Text="{Binding PlayerTwo.FullName}"  Style="{StaticResource SubtitleTextStyle}" HorizontalAlignment="Left" Margin="10,0,0,2"/>
-                            <TextBlock Grid.Column="3" Text="{Binding Date }"  Style="{StaticResource SubtitleTextStyle}" HorizontalAlignment="Left" Margin="5,0,0,2"/>
-                            <TextBlock Grid.Column="4" Text="{Binding MatchScore }"  Style="{StaticResource SubtitleTextStyle}" HorizontalAlignment="Left" Margin="10,0,0,2"/>
+                            <TextBlock Grid.Column="3" Text="{Binding Date}"  Style="{StaticResource SubtitleTextStyle}" HorizontalAlignment="Left" Margin="5,0,0,2"/>
+                            <TextBlock Grid.Column="4" Text="{Binding MatchFormat.FinalSetType, Converter={StaticResource EnumDescConverter}}"  Style="{StaticResource SubtitleTextStyle}" HorizontalAlignment="Left" Margin="10,0,0,2"/>
 
                         </Grid>
 

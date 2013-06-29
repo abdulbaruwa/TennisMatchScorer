@@ -45,20 +45,11 @@ namespace TennisMatchScorer.ViewModel
 
     }
 
-    public enum FinalSetFormats
-    {
-        [Description("Normal")]
-        Normal, 
-
-        [Description("10 Point Championship Tie Break")]
-        10PointChampionShipTieBreak
-    }
-
     [DataContract]
     public class MatchFormat
     {
         public int Sets { get; set; }
-        public int FinalSetType { get; set; }
+        public FinalSetFormats FinalSetType { get; set; }
 
     }
 
