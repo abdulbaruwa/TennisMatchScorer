@@ -19,8 +19,34 @@
             <RowDefinition />
         </Grid.RowDefinitions>
             <TextBlock Name="MyUpcomingMatches" Grid.Row="0" Style="{StaticResource GroupHeaderTextStyle}" VerticalAlignment="Top" Margin="15,0,0,0" Text="Upcoming Matches"/>
+        
    
             <ListView Grid.Row="2"  HorizontalContentAlignment="Stretch" ItemsSource="{Binding Matches}" Name="MyUpcomingMatchesDetails" >
+            <ListView.Header>
+                <Grid Width="800">
+
+                    <Grid.Background>
+                        <SolidColorBrush Color="Teal"/>
+                    </Grid.Background>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="30"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition  Height="50"/>
+                    </Grid.RowDefinitions>
+                    <Rectangle  Stroke="Yellow" StrokeThickness="2" Margin="0" Grid.Row="0" Grid.ColumnSpan="5" />
+                    <TextBlock Grid.Column="1" Text="Tournament Name"  Style="{StaticResource SubtitleTextStyle}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0,0,3"/>
+                    <TextBlock Grid.Column="2" Text="Opposition"  Style="{StaticResource SubtitleTextStyle}" HorizontalAlignment="Center" VerticalAlignment="Center"  Margin="10,0,0,2"/>
+                    <TextBlock Grid.Column="3" Text="Match Date and Time"  Style="{StaticResource SubtitleTextStyle}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,2"/>
+                    <TextBlock Grid.Column="4" Text="Final Set Format"  Style="{StaticResource SubtitleTextStyle}" HorizontalAlignment="Center" VerticalAlignment="Center"  Margin="10,0,0,2"/>
+
+                </Grid>
+            </ListView.Header>
+
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <StackPanel Orientation="Vertical"/>
