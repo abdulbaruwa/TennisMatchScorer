@@ -21,7 +21,7 @@
             <TextBlock Name="MyUpcomingMatches" Grid.Row="0" Style="{StaticResource GroupHeaderTextStyle}" VerticalAlignment="Top" Margin="15,0,0,0" Text="Upcoming Matches"/>
         
    
-            <ListView Grid.Row="2"  HorizontalContentAlignment="Stretch" ItemsSource="{Binding Matches}" Name="MyUpcomingMatchesDetails" >
+            <ListView Grid.Row="2" SelectionMode="Single" HorizontalContentAlignment="Stretch" ItemsSource="{Binding Matches}" Name="MyUpcomingMatchesDetails" >
             <ListView.Header>
                 <Grid Width="800" Margin="6,0,0,0">
 

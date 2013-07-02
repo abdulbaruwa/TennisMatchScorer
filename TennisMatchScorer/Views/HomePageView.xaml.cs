@@ -19,7 +19,8 @@ namespace TennisMatchScorer.Views
             ViewModel = new ViewModelLocator().HomePageViewModel;
             this.InitializeComponent();
             this.OneWayBind(ViewModel, x => x.MyMatchStatsViewModel, x => x.MatchStatsGridSection.DataContext);
-            this.OneWayBind(ViewModel, x => x.UpcomingMatchesControlViewModel, x => x.UpcomingMatchGridSection.DataContext);
+            this.Bind(ViewModel, x => x.UpcomingMatchesControlViewModel, x => x.UpcomingMatchGridSection.DataContext);
+            
             this.Bind(ViewModel, x => x.DefaultPlayer.FullName, x => x.DefaultPlayerFullName.Text);
         }
 
