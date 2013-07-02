@@ -23,7 +23,7 @@
    
             <ListView Grid.Row="2"  HorizontalContentAlignment="Stretch" ItemsSource="{Binding Matches}" Name="MyUpcomingMatchesDetails" >
             <ListView.Header>
-                <Grid Width="800">
+                <Grid Width="800" Margin="6,0,0,0">
 
                     <Grid.Background>
                         <SolidColorBrush Color="Teal"/>
@@ -39,10 +39,10 @@
                         <RowDefinition  Height="50"/>
                     </Grid.RowDefinitions>
                     <Rectangle  Stroke="Yellow" StrokeThickness="2" Margin="0" Grid.Row="0" Grid.ColumnSpan="5" />
-                    <TextBlock Grid.Column="1" Text="Tournament Name"  Style="{StaticResource SubtitleTextStyle}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0,0,3"/>
-                    <TextBlock Grid.Column="2" Text="Opposition"  Style="{StaticResource SubtitleTextStyle}" HorizontalAlignment="Center" VerticalAlignment="Center"  Margin="10,0,0,2"/>
-                    <TextBlock Grid.Column="3" Text="Match Date and Time"  Style="{StaticResource SubtitleTextStyle}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,2"/>
-                    <TextBlock Grid.Column="4" Text="Final Set Format"  Style="{StaticResource SubtitleTextStyle}" HorizontalAlignment="Center" VerticalAlignment="Center"  Margin="10,0,0,2"/>
+                    <TextBlock Grid.Column="1" Text="Tournament"  Style="{StaticResource SubtitleTextStyle}" HorizontalAlignment="Left" Padding="10" VerticalAlignment="Center" Margin="10,0,0,3"/>
+                    <TextBlock Grid.Column="2" Text="Against"  Style="{StaticResource SubtitleTextStyle}" HorizontalAlignment="Left" Padding="10" VerticalAlignment="Center"  Margin="10,0,0,2"/>
+                    <TextBlock Grid.Column="3" Text="When will it be"  Style="{StaticResource SubtitleTextStyle}" HorizontalAlignment="Left" Padding="10" VerticalAlignment="Center" Margin="5,0,0,2"/>
+                    <TextBlock Grid.Column="4" Text="Final Set Format"  Style="{StaticResource SubtitleTextStyle}" HorizontalAlignment="Left" Padding="10" VerticalAlignment="Center"  Margin="10,0,0,2"/>
 
                 </Grid>
             </ListView.Header>

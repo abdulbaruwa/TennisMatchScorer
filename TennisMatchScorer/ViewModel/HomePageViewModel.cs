@@ -13,6 +13,13 @@ namespace TennisMatchScorer.ViewModel
             set { this.RaiseAndSetIfChanged(ref _myMatchStatsViewModel, value); }
         }
 
+        private UpcomingMatchesControlViewModel _upcomingMatchesControlViewModel;
+        public UpcomingMatchesControlViewModel UpcomingMatchesControlViewModel
+        {
+            get { return _upcomingMatchesControlViewModel; }
+            set { this.RaiseAndSetIfChanged(ref _upcomingMatchesControlViewModel, value); }
+        }
+
         private Player _defaultPlayer;
         public Player DefaultPlayer
         {

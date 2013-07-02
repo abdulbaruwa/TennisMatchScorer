@@ -51,6 +51,7 @@ namespace TennisMatchScorer.ViewModel
                 var defaultPlayer = new Player() {FirstName = "Ademola", Rating = "7.2", SurName = "Baruwa"};
                 var homepageVm = new HomePageViewModel();
                 homepageVm.MyMatchStatsViewModel = this.MyMatchStatsViewModel;
+                homepageVm.UpcomingMatchesControlViewModel = this.UpcomingMatchesControlViewModel;
                 homepageVm.DefaultPlayer = defaultPlayer;
                 return homepageVm;
             }

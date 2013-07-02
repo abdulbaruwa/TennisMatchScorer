@@ -46,7 +46,7 @@
 
             <GridView.ItemsPanel>
                 <ItemsPanelTemplate>                        
-                    <VirtualizingStackPanel Orientation="Horizontal"/>
+                    <VirtualizingStackPanel Orientation="Horizontal" VerticalAlignment="Top"/>
                 </ItemsPanelTemplate>
             </GridView.ItemsPanel>
             <GridView.GroupStyle>
@@ -72,11 +72,11 @@
                     </GroupStyle.Panel>
                 </GroupStyle>
             </GridView.GroupStyle>
-            <Grid Name="MatchStatsGridSection" HorizontalAlignment="Left" MinWidth="250" MinHeight="250" DataContext="{Binding MyMatchStatsViewModel}">
+            <Grid Name="MatchStatsGridSection" HorizontalAlignment="Left" MinWidth="250" MinHeight="250" DataContext="{Binding MyMatchStatsViewModel}" VerticalAlignment="Top">
                 <Controls:MatchStatsControl DataContext="{Binding}"/>
             </Grid>
-            <Grid Name="NextMatchGridSection" HorizontalAlignment="Left" MinWidth="250" MinHeight="250" DataContext="{Binding MyMatchStatsViewModel}">
-                <Controls:UpcomingMatchControl />
+            <Grid Name="UpcomingMatchGridSection" HorizontalAlignment="Left" MinWidth="250" MinHeight="250" DataContext="{Binding UpcomingMatchesControlViewModel}" VerticalAlignment="Top" Margin="50,-55,0,0" >
+                <Controls:UpcomingMatchControl/>
             </Grid>
             <TextBlock>Other Controls for the home page go here</TextBlock>
         </GridView>
