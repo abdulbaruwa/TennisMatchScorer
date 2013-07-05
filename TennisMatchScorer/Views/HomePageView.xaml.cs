@@ -22,6 +22,7 @@ namespace TennisMatchScorer.Views
             this.Bind(ViewModel, x => x.UpcomingMatchesControlViewModel, x => x.UpcomingMatchGridSection.DataContext);
             
             this.Bind(ViewModel, x => x.DefaultPlayer.FullName, x => x.DefaultPlayerFullName.Text);
+            this.BindCommand(ViewModel, x => x.AddMatch, x => x.AddMatch.Command);
         }
 
         /// <summary>
@@ -31,8 +32,7 @@ namespace TennisMatchScorer.Views
         /// <param name="navigationParameter">The parameter value passed to
         /// <see cref="Frame.Navigate(Type, Object)"/> when this page was initially requested.
         /// </param>
-        /// <param name="pageState">A dictionary of state preserved by this page during an earlier
-        /// session.  This will be null the first time a page is visited.</param>
+        /// <param name="pageState">A dictionary of state pre is visited.</param>
         protected override void LoadState(Object navigationParameter, Dictionary<String, Object> pageState)
         {
             // TODO: Assign a collection of bindable groups to this.DefaultViewModel["Groups"]

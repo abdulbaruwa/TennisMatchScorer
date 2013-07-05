@@ -22,7 +22,7 @@
             <RowDefinition />
         </Grid.RowDefinitions>
         <TextBlock Name="MyMatchStats" Grid.Row="0" Style="{StaticResource GroupHeaderTextStyle}" VerticalAlignment="Top" Margin="15,0,0,0" Text="Match Stats"/>
-        <ListView Grid.Row="1"  HorizontalContentAlignment="Stretch" ItemsSource="{Binding MyMatchStats}" Name="MyMatchStatsDetails" >
+        <ListView Grid.Row="1"  SelectionMode="None" IsItemClickEnabled="True" HorizontalContentAlignment="Stretch" ItemsSource="{Binding MyMatchStats}" Name="MyMatchStatsDetails" >
             <ListView.Header>
                 <Grid Width="600" Margin="6,0,0,0">
                     <Grid.Background>

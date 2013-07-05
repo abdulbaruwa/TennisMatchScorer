@@ -1,4 +1,5 @@
 using System.Runtime.Serialization;
+using System.Windows.Input;
 using ReactiveUI;
 namespace TennisMatchScorer.ViewModel
 {
@@ -26,6 +27,8 @@ namespace TennisMatchScorer.ViewModel
             get { return _defaultPlayer; }
             set { this.RaiseAndSetIfChanged(ref _defaultPlayer, value); }
         }
+
+        public ReactiveCommand AddMatch { get; protected set; }
     }
 
 }
