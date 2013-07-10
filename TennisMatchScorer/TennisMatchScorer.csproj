@@ -110,6 +110,9 @@
     <Compile Include="Common\BooleanToWinLoseImageConverter.cs" />
     <Compile Include="Common\EnumDescriptionConverter.cs" />
     <Compile Include="Common\EnumHelper.cs" />
+    <Compile Include="Controls\AddMatchControl.xaml.cs">
+      <DependentUpon>AddMatchControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\UpcomingMatchControl.xaml.cs">
       <DependentUpon>UpcomingMatchControl.xaml</DependentUpon>
     </Compile>
@@ -171,6 +174,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Controls\AddMatchControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\UpcomingMatchControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -215,6 +222,9 @@
     </Reference>
     <Reference Include="System.Reactive.PlatformServices">
       <HintPath>..\packages\Rx-PlatformServices.2.1.30214.0\lib\NetCore45\System.Reactive.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="WinRTXamlToolkit">
+      <HintPath>..\packages\winrtxamltoolkit.1.5.2.0\lib\netcore45\WinRTXamlToolkit.dll</HintPath>
     </Reference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0' ">
