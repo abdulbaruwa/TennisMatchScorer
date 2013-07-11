@@ -44,6 +44,14 @@ namespace TennisMatchScorer.ViewModel
             }
         }
 
+        public NewMatchViewModel NewMatchViewModel
+        {
+            get 
+            { 
+                return new NewMatchViewModel();
+            }
+        }
+
         public HomePageViewModel HomePageViewModel
         {
             get

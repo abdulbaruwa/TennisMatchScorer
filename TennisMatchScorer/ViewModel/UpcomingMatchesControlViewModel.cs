@@ -49,15 +49,21 @@ namespace TennisMatchScorer.ViewModel
     public class MatchFormat
     {
         public int Sets { get; set; }
+        public SetsFormat SetsFormat { get; set; }
         public FinalSetFormats FinalSetType { get; set; }
+        public DueceFormat DueceFormat { get; set; }
 
     }
 
     [DataContract]
     public class Tournament
     {
-        public string TournamentName { get; set;}
+        public string TournamentName { get; set; }
         public string TournamentGrade { get; set; }
         public DateTime StartDate { get; set; }
+        public DateTime Endate { get; set; }
     }
+
+
+        
 }
