@@ -7,22 +7,23 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:Controls="using:WinRTXamlToolkit.Controls" xmlns:WinRTDatePicker="using:WinRTDatePicker"
-    xmlns:viewModel="using:TennisMatchScorer.ViewModel" xmlns:Common="using:TennisMatchScorer.Common" mc:Ignorable="d" Margin="0,7,0,-7">
+    xmlns:viewModel="using:TennisMatchScorer.ViewModel" xmlns:Common="using:TennisMatchScorer.Common" mc:Ignorable="d" Margin="0,7,0,-7" HorizontalAlignment="Center" 
+    >
     <UserControl.Resources>
         <Common:EnumDescriptionConverter x:Key="EnumDescConverter" />
     </UserControl.Resources>
+
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
+            <RowDefinition Height="200"/>
+            <RowDefinition Height="250"/>
         </Grid.RowDefinitions>
-        
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        
+
 
         <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Vertical">
             <TextBlock Text="Player One" Margin="15,0,5,10" Style="{StaticResource SubheaderTextStyle}"/>
@@ -39,7 +40,7 @@
             <Controls:WatermarkTextBox Name="PlayerTwoSurname" WatermarkText="Last Name" Margin="0,0,5,5"/>
             <Controls:WatermarkTextBox Name="PlayerTwoRating" WatermarkText="Rating" Margin="0,0,5,5"/>
         </StackPanel>
-        
+
         <StackPanel Orientation="Vertical" Grid.Column="0" Grid.Row="1">
             <TextBlock Text="Tournament Details" Margin="15,0,5,10" Style="{StaticResource SubheaderTextStyle}"/>
             <StackPanel Orientation="Horizontal">
@@ -48,7 +49,7 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Grade:" Margin="15,0,5,10" Style="{StaticResource TitleTextStyle}"/>
-            <TextBlock Name="Grade" Text="Grade 3 U 12" Margin="15,0,5,10" Style="{StaticResource SubtitleTextStyle}"/>
+                <TextBlock Name="Grade" Text="Grade 3 U 12" Margin="15,0,5,10" Style="{StaticResource SubtitleTextStyle}"/>
             </StackPanel>
             <Grid>
                 <Grid.RowDefinitions>
@@ -59,11 +60,11 @@
                     <ColumnDefinition />
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
-                <TextBlock Text="Start Date" Grid.Column="0" Margin="15,0,5,10" Style="{StaticResource TitleTextStyle}"/>
+                <TextBlock Text="Start Date" Grid.Column="0" Margin="15,0,5,10" Foreground="OrangeRed" Style="{StaticResource TitleTextStyle}" />
                 <TextBlock Text="End Date" Grid.Column="1" Margin="15,0,5,10" Style="{StaticResource TitleTextStyle}"/>
 
-                <WinRTDatePicker:DatePicker Grid.Column="0" Grid.Row="1" Margin="5,0,5,5"  Name="StartDate" />
-                <WinRTDatePicker:DatePicker Grid.Column="1" Grid.Row="1"  Margin="5,0,5,5" Name="EndDate" />
+                <!--<WinRTDatePicker:DatePicker Grid.Column="0" Grid.Row="1" Margin="5,0,5,5"  Name="StartDate" />
+                <WinRTDatePicker:DatePicker Grid.Column="1" Grid.Row="1"  Margin="5,0,5,5" Name="EndDate" />-->
             </Grid>
         </StackPanel>
         <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Vertical">
@@ -81,10 +82,10 @@
                             <TextBlock Text="{Binding Converter={StaticResource EnumDescConverter}}" />
                         </DataTemplate>
                     </ListBox.ItemTemplate>
-                    
+
                 </ListBox>
             </Grid>
         </StackPanel>
-        
+
     </Grid>
 </UserControl>

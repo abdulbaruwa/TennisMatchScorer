@@ -68,6 +68,13 @@ namespace TennisMatchScorer.ViewModel
     {
         public string TournamentName { get; set; }
         public DateTime Date { get; set; }
+        public string DisplayDate
+        {
+            get
+            {
+                return this.Date.ToString("dd MMMM yyyy");
+            }
+        }
         public int Duration { get; set; }
         public Player PlayerOne { get; set; }
         public Player PlayerTwo { get; set; }
@@ -77,6 +84,11 @@ namespace TennisMatchScorer.ViewModel
         public string DefaultPlayerWinLose
         {
             get { return DefaultPlayerWon ? "&#xE071" : "&#xE071;"; }
+        }
+
+        public string WonLoss
+        {
+            get { return DefaultPlayerWon ? "Won" : "Lost";}
         }
 
         public Score Score { get; set; }

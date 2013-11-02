@@ -1,5 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reactive.Linq;
+using System.Xml.Linq;
+using Windows.UI.Xaml.Input;
+using Windows.UI.Xaml.Media;
 using TennisMatchScorer.ViewModel;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -18,11 +22,18 @@ namespace TennisMatchScorer.Views
         {
             ViewModel = new ViewModelLocator().HomePageViewModel;
             this.InitializeComponent();
-            this.OneWayBind(ViewModel, x => x.MyMatchStatsViewModel, x => x.MatchStatsGridSection.DataContext);
-            this.Bind(ViewModel, x => x.UpcomingMatchesControlViewModel, x => x.UpcomingMatchGridSection.DataContext);
+            this.OneWayBind(ViewModel, x => x.MyMatchStatsViewModel, x => x.itemGridView.DataContext);
             
             this.Bind(ViewModel, x => x.DefaultPlayer.FullName, x => x.DefaultPlayerFullName.Text);
-            this.BindCommand(ViewModel, x => x.AddMatch, x => x.AddMatch.Command);
+            this.Bind(ViewModel, x => x.ShowNewMatchPopup, x => x.AddMatchPoupup.IsOpen);
+            this.Bind(ViewModel, x => x.ShowNewMatchPopup, x => x.DisableBackgroundBorder.Visibility);
+            this.BindCommand(ViewModel, x => x.AddMatch);
+
+            // Abdul: Here, I am attempting to Observe the click event on the main page. And in NewMatchControl is displayed close it. --Need to figure out how to observe the two events.
+            //var mainViewPressed = Observable.Merge(
+            //    Observable.FromEventPattern<PointerRoutedEventArgs>(this, "PointerPressed").Select(_ => false),
+            //    Observable.FromEventPattern<PointerRoutedEventArgs>(this, "PointerReleased").Select(_ => true)).StartWith(true).Where(x => ViewModel.ShowNewMatchPopup);
+            //mainViewPressed.Subscribe(_ => ViewModel.ShowNewMatchPopup = false);
         }
 
         /// <summary>
